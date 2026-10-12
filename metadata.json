@@ -1,0 +1,6 @@
+{
+  "name": "ITSC - Electrónica de Potencia: Modos de Funcionamiento",
+  "description": "Plataforma interactiva de aprendizaje, simulación y evaluación sobre modos de funcionamiento electrónico y electromecánico (Tema 3.2, MTJ-1012) para la División de Ingeniería Mecatrónica del ITSC.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
