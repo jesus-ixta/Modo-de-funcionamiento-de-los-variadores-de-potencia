@@ -20,9 +20,9 @@ export default function App() {
     evaluation: boolean;
   }>({
     theory: true,
-    simulator: false,
-    socratic: false,
-    evaluation: false,
+    simulator: true,
+    socratic: true,
+    evaluation: true,
   });
 
   const [socraticPassed, setSocraticPassed] = useState<boolean>(false);

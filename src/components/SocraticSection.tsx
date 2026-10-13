@@ -62,7 +62,7 @@ export const SocraticSection: React.FC<SocraticSectionProps> = ({
     {
       id: 'init-1',
       role: 'assistant',
-      content: `¡Bienvenido al Módulo de Tutoría Socrática, ${studentName || 'estimado alumno de Mecatrónica'}! Soy tu Profesor de Electrónica de Potencia Aplicada en el Instituto Tecnológico Superior de Comalcalco (ITSC).\n\nMi función aquí no es darte respuestas directas, sino guiarte mediante el diálogo técnico para comprobar tu dominio experimental del Tema 3.2.\n\nPara desbloquear tu examen oficial, analizaremos tres planteamientos fundamentales de accionamientos eléctricos.\n\nComencemos con el primer reactivo:\n\n📌 **Pregunta 1:** ${QUESTIONS_METADATA[0].text}`,
+      content: `¡Bienvenido al Módulo de Tutoría Socrática, ${studentName || 'estimado alumno de Mecatrónica'}! Soy tu Profesor de Electrónica de Potencia Aplicada en el Instituto Tecnológico Superior de Comalcalco (ITSC).\n\nMi función aquí no es darte respuestas directas, sino guiarte mediante el diálogo técnico para consolidar tu dominio experimental del Tema 3.2.\n\nPuedes ingresar al Examen de Evaluación (Módulo 4) en cualquier momento desde la barra superior, pero te invito a resolver estos tres reactivos formativos para asegurar una excelente calificación.\n\nComencemos con el primer planteamiento:\n\n📌 **Pregunta 1:** ${QUESTIONS_METADATA[0].text}`,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     },
   ]);
@@ -155,19 +155,18 @@ export const SocraticSection: React.FC<SocraticSectionProps> = ({
       <div className="bg-slate-900 rounded-2xl border border-slate-800 p-6 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-semibold uppercase tracking-wider mb-2">
-            <GraduationCap className="w-3.5 h-3.5" /> Módulo 3: Tutor Socrático Obligatorio
+            <GraduationCap className="w-3.5 h-3.5" /> Módulo 3: Tutor Socrático IA
           </div>
           <h2 className="text-2xl font-bold text-white tracking-tight">
-            Validación de Competencias Mecatrónicas con IA
+            Acompañamiento y Guía Socrática con IA
           </h2>
           <p className="text-slate-300 text-sm mt-1 max-w-2xl">
-            Para acceder al examen final, debes dialogar con el Tutor Socrático del ITSC y argumentar con rigor
-            físico los fenómenos observados en el simulador.
+            Dialoga con el Profesor virtual del ITSC para afianzar tus competencias mecatrónicas y repasar conceptos clave. Puedes acceder a la Evaluación oficial en cualquier momento.
           </p>
         </div>
 
-        {/* Status Badge */}
-        <div className="shrink-0 flex items-center gap-3">
+        {/* Status Badge & Direct Evaluation Button */}
+        <div className="shrink-0 flex flex-wrap items-center gap-3">
           {socraticPassed ? (
             <div className="bg-emerald-950/80 border border-emerald-500 text-emerald-300 px-4 py-2 rounded-xl flex items-center gap-2 text-xs font-bold shadow-lg shadow-emerald-950/40">
               <CheckCircle2 className="w-4 h-4 text-emerald-400" />
@@ -176,9 +175,17 @@ export const SocraticSection: React.FC<SocraticSectionProps> = ({
           ) : (
             <div className="bg-amber-950/80 border border-amber-500 text-amber-300 px-4 py-2 rounded-xl flex items-center gap-2 text-xs font-bold">
               <Clock className="w-4 h-4 text-amber-400 animate-spin" />
-              <span>Paso {Math.min(currentQuestionIndex, 3)} de 3 en Evaluación</span>
+              <span>Paso {Math.min(currentQuestionIndex, 3)} de 3</span>
             </div>
           )}
+
+          <button
+            onClick={onProceedToEvaluation}
+            className="px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs shadow-md shadow-blue-950 flex items-center gap-2 transition-all cursor-pointer transform active:scale-95"
+          >
+            <span>Ir a la Evaluación</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
         </div>
       </div>
 
